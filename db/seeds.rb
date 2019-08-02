@@ -20,8 +20,3 @@ end
 # Ingredient.create(name: "lemon")
 # Ingredient.create(name: "ice")
 # Ingredient.create(name: "mint leaves")
-
-url = "https://images.unsplash.com/photo-1507608158173-1dcec673a2e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-cocktail = Cocktail.new(name: 'background')
-cocktail.remote_photo_url = url
-cocktail.save
