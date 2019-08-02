@@ -22,8 +22,10 @@
         <%= link_to 'Manage ingredients', '#' %>
       </div>
     </div>
-    <div class='box'>
-      <%= yield %>
+    <div class="whole-page" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path Cocktail.find(1).photo, height: 1300, width: 1800, crop: :scale %>')">
+      <div class='box'>
+        <%= yield %>
+      </div>    
     </div>
 
     <%= javascript_include_tag "application" %> <!-- from app/assets/javascripts/application.js -->

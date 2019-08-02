@@ -1,22 +1,21 @@
-<div class='add-bar'>
-  <%= simple_form_for @cocktail do |f| %>
-    <%= f.input :name %>
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
-    <%= f.submit "add a cocktail", class: "btn btn-primary" %>
-  <% end %>
-</div>
-
-<% @cocktails.each do |c| %>
-  <div class='item'>
-    <%= link_to c.name, cocktail_path(c) %>
-    <%= 'Major ingredients:' %>
-    <% c.doses.each do |d| %>
-      <%= d.ingredient.name %><%= ', ' %>
+  <div class='add-bar'>
+    <%= simple_form_for @cocktail do |f| %>
+      <%= f.input :name %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.submit "add a cocktail", class: "btn btn-primary" %>
     <% end %>
   </div>
-<% end %>
 
-<%= cl_image_tag("xt7aq90wqfakrxcxzxiz",
-      width: 400, height: 300, crop: :fill) %>
+  <% @cocktails.each do |c| %>
+    <div class='item'>
+      <%= link_to c.name, cocktail_path(c) %>
+      <%= 'Major ingredients:' %>
+      <% c.doses.each do |d| %>
+        <%= d.ingredient.name %><%= ', ' %>
+      <% end %>
+    </div>
+  <% end %>
+
+
 

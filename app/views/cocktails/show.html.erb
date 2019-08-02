@@ -1,9 +1,10 @@
 <div class='card-small'>
   <%= @cocktail.name %>
+  <%= cl_image_tag @cocktail.photo, height: 150, width: 200, crop: :fill %>
   <% @cocktail.doses.each do |d| %>
     <div class='item'>
       <%= d.ingredient.name %>
-      <%= d.description %>
+      <%= d.description %><%= ' cl' %>
     </div>
   <% end %>
   <%= simple_form_for [@cocktail, @dose] do |f| %>
@@ -13,6 +14,3 @@
   <% end %>
 </div>
 <%= link_to 'back to main', cocktails_path %>
-
-<%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
-
