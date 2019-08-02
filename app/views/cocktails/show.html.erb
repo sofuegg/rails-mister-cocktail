@@ -1,0 +1,16 @@
+<div class='card-small'>
+  <%= @cocktail.name %>
+  <% @cocktail.doses.each do |d| %>
+    <div class='item'>
+      <%= d.ingredient.name %>
+      <%= d.description %>
+    </div>
+  <% end %>
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :ingredient_id, collection: Ingredient.all, prompt: :translate %>
+    <%= f.input :description, as: :range %>
+    <%= f.submit "add a dose", class: "btn btn-primary" %>
+  <% end %>
+</div>
+<%= link_to 'back to main', cocktails_path %>
+

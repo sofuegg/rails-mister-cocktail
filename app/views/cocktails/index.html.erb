@@ -1,0 +1,16 @@
+<div class='add-bar'>
+  <%= simple_form_for @cocktail do |f| %>
+    <%= f.input :name %>
+    <%= f.submit "add a cocktail", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<% @cocktails.each do |c| %>
+  <div class='item'>
+    <%= link_to c.name, cocktail_path(c) %>
+    <%= 'Major ingredients:' %>
+    <% c.doses.each do |d| %>
+      <%= d.ingredient.name %><%= ', ' %>
+    <% end %>
+  </div>
+<% end %>
