@@ -1,16 +1,24 @@
 <div class='card-small'>
-  <%= @cocktail.name %>
-  <%= cl_image_tag @cocktail.photo, height: 150, width: 200, crop: :fill %>
-  <% @cocktail.doses.each do |d| %>
-    <div class='item'>
-      <%= d.ingredient.name %>
-      <%= d.description %><%= ' cl' %>
+  <div class:'box-left'>
+    <div class='drink-name'>
+      <%= @cocktail.name %>
     </div>
-  <% end %>
-  <%= simple_form_for [@cocktail, @dose] do |f| %>
-    <%= f.input :ingredient_id, collection: Ingredient.all, prompt: :translate %>
-    <%= f.input :description, as: :range %>
-    <%= f.submit "add a dose", class: "btn btn-primary" %>
-  <% end %>
+    <%= cl_image_tag @cocktail.photo, height: 150, width: 200, crop: :fill %>
+    <% @cocktail.doses.each do |d| %>
+      <div class='item'>
+        <%= d.ingredient.name %>
+        <%= d.description %><%= ' cl' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class:'box-right'>
+    <%= simple_form_for [@cocktail, @dose] do |f| %>
+      <%= f.input :ingredient_id, collection: Ingredient.all, prompt: :translate, label: 'Choose your ingredient' %>
+      <%= f.input :description, as: :range, label: 'Portion (0-100 cl)' %>
+      <%= f.submit "add an ingredient", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
 </div>
 <%= link_to 'back to main', cocktails_path %>

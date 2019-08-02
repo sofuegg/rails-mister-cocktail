@@ -23,16 +23,23 @@ body {
   .banner-right {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+  }
+  .banner-left {
+    padding: 0px 10px;
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
   }
 }
 
 .box {
-  padding: 30px;
+  padding: 20px 30px;
   height: 100vh;
 }
 
 .card-small {
-  width: 400px;
+  width: 400px;;
 }
 
 .item {
@@ -47,4 +54,10 @@ body {
 .whole-page {
   background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(asset_path("bg_image.jpg"));
   background-size: cover;
+}
+
+.drink-name {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 8px;
 }

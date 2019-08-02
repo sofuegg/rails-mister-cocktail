@@ -7,12 +7,17 @@
     <% end %>
   </div>
 
+  <br>
+  <br>
+  <p>List of cocktails</p>
   <% @cocktails.each do |c| %>
     <div class='item'>
-      <%= link_to c.name, cocktail_path(c) %>
+      <%= link_to c.name, cocktail_path(c), class: 'drink-name' %>
       <%= 'Major ingredients:' %>
       <% c.doses.each do |d| %>
         <%= d.ingredient.name %><%= ', ' %>
       <% end %>
+      <%= link_to '(delete me)', cocktail_path(c),
+        method: :delete %>
     </div>
   <% end %>
